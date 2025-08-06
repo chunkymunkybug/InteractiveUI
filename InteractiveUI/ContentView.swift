@@ -11,6 +11,9 @@ struct ContentView: View {
     @State private var name = "" //var that stores all names
     //state tells SwiftUI to update the view whenever that variable is modified.
     @State private var textTitle = "What is your name?"
+    @State private var color = ""
+    @State private var textTitle2 = "What is your favorite color?"
+    @State private var hello = ""
     var body: some View {
         
         VStack { //beginning of VStack
@@ -24,13 +27,25 @@ struct ContentView: View {
                 .font(.title)
                 .border(Color.gray, width: 1) //custom text field
             
-            Button("Submit Name") {
-                textTitle = "Welcome, \(name) !" //action of button
+            Text (textTitle2)
+                .font(.title)
+                .fontWeight(.bold)
+            
+            TextField("Type color here", text: $color)
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .border(Color.gray, width: 1)
+            
+            Button("Submit Answers") {
+                textTitle = "Welcome, \(name) ! " //action of button
+                textTitle2 = "I love \(color), too"
+                hello = "ALERT"
             }
             .font(.title2)
             .buttonStyle(.borderedProminent)
             .tint(.purple) //customizes button
 
+            
             
             .padding () //padding around elements
         } //end of VStack
